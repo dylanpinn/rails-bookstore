@@ -16,6 +16,16 @@
     <%= form.text_field :title %>
   </div>
 
+  <div id="authors" class="field">
+    <%= form.fields_for :authors do |author| %>
+
+      <%= render 'author_fields', f: author %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add author', form, :authors %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
